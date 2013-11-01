@@ -1,4 +1,4 @@
-Bundler::Bower
+bundler-bower
 ==============
 
 [![Build Status](https://secure.travis-ci.org/LTe/bundler-bower.png)](http://travis-ci.org/LTe/bundler-bower)
@@ -13,11 +13,15 @@ Bower support for bundler. You can use assets from bower directly in `Gemfile`
 
 Execute:
 
-    gem install 'bundler-bower'
+```ruby
+gem install 'bundler-bower'
+```
 
 Add this line to your application's Gemfile:
 
-    require "bundler/bower"
+```ruby
+require "bundler/bower"
+```
 
 ## Usage
 
@@ -36,6 +40,8 @@ asset 'moment'
 
 You can use DSL from [bower-rails](https://github.com/42dev/bower-rails). Click [here](https://github.com/42dev/bower-rails#ruby-dsl-configuration) for details. Only `group` method is not supported.
 
+And just execute `bundle install`.
+
 ```
 Using rake (10.1.0)
 Using bundler (1.3.5)
@@ -51,7 +57,7 @@ Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 ```
 
-When you execute `bundle` or `bundle install` bundler-bower will execute `bower install`. But when you execute `bundle update` bundler-bower will execute `bower update`.
+When you execute `bundle` or `bundle install` bundler-bower will execute `bower install`. But when you execute `bundle update` bundler-bower will execute `bower update`. When bundler quits you can find your assets in `vendor/assets/bower_components`. Of course you can change this directory by `assets_path` method.
 
 ## Contributing
 
