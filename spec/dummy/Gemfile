@@ -3,5 +3,6 @@ require 'bundler/bower'
 
 gem 'rake'
 
-asset 'backbone'
+asset 'backbone', "0.9"
+asset 'moment'
 

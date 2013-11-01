@@ -9,6 +9,11 @@ bundler-bower
 
 Bower support for bundler. You can use assets from bower directly in `Gemfile`
 
+### Requirements
+
+* bower
+* ruby 2.0 (or with `Module#prepend` support)
+
 ## Installation
 
 Execute:
@@ -45,14 +50,20 @@ And just execute `bundle install`.
 ```
 Using rake (10.1.0)
 Using bundler (1.3.5)
-bower backbone#*                cached git://github.com/jashkenas/backbone.git#1.1.0
-bower backbone#*              validate 1.1.0 against git://github.com/jashkenas/backbone.git#*
-bower backbone#*               install backbone#1.1.0
+bower backbone#0.9              cached git://github.com/jashkenas/backbone.git#0.9.10
+bower backbone#0.9            validate 0.9.10 against git://github.com/jashkenas/backbone.git#0.9
+bower moment#*                  cached git://github.com/timrwood/moment.git#2.4.0
+bower moment#*                validate 2.4.0 against git://github.com/timrwood/moment.git#*
+bower moment#*                 install moment#2.4.0
+bower backbone#0.9             install backbone#0.9.10
 
-backbone#1.1.0 bower_components/backbone
+moment#2.4.0 bower_components/moment
+
+backbone#0.9.10 bower_components/backbone
 bower check-new     Checking for new versions of the project dependencies..
 dsl-generated dependencies /home/lite/work/bundler-bower/spec/dummy/vendor/assets
-└── backbone#1.1.0
+├── backbone#0.9.10 (latest is 1.1.0)
+└── moment#2.4.0
 Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 ```
