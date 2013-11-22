@@ -6,5 +6,5 @@ require "bundler/bower/fake_dsl/bower-rails"
 require "bundler/bower/bundler_installer"
 
 Bundler::Dsl.send(:include, Bundler::Bower::FakeDsl::Bundler)
-BowerRails::Dsl.send(:prepend, Bundler::Bower::FakeDsl::BowerRails)
-Bundler::Installer.send(:prepend, Bundler::Bower::BundlerInstaller)
+BowerRails::Dsl.send(:include, Bundler::Bower::FakeDsl::BowerRails)
+Bundler::Installer.send(:include, Bundler::Bower::BundlerInstaller)
