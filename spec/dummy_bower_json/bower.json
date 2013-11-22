@@ -1,0 +1,8 @@
+{
+  "vendor": {
+    "name": "bower-rails generated vendor assets",
+    "dependencies": {
+      "backbone"    : "0.9"
+    }
+  }
+}

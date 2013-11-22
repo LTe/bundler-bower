@@ -5,6 +5,60 @@ module Bundler::Bower
     let(:options) { {} }
     subject { Rake.new(options) }
 
+    describe "recognize dependency file" do
+      before { stub(Dir).entries(any_args) { files } }
+
+      context "only Gemfile" do
+        let(:files) { ["Gemfile", "other-file" ].shuffle }
+
+        it "returns Gemfile as dependency file" do
+          subject.dependency_file.should == "Gemfile"
+        end
+      end
+
+      context "Bowerfile and Gemfile" do
+        let(:files) { ["Gemfile", "Bowerfile", "other-file" ].shuffle }
+
+        it "returns Bowerfile" do
+          subject.dependency_file.should == "Bowerfile"
+        end
+      end
+
+      context "bower.json, Bowerfile and Gemfile" do
+        let(:files) { ["Gemfile", "Bowerfile", "bower.json", "other-file" ].shuffle }
+
+        it "returns bower.json" do
+          subject.dependency_file.should == "bower.json"
+        end
+      end
+    end
+
+    describe "stategy for DSL and .json format" do
+      describe "for DSL" do
+        ["Gemfile", "Bowerfile"].each do |file|
+          describe file do
+            before { stub(subject).dependency_file { file }  }
+
+            it "execute DSL strategy for #{file}" do
+              mock(subject).perform_dsl(file)
+              subject.perform
+            end
+          end
+        end
+      end
+
+      describe "for .json file" do
+        describe "bower.json" do
+          before { stub(subject).dependency_file { "bower.json" }  }
+
+          it "execute standard strategy for bower.json" do
+            mock(subject).perform_json
+            subject.perform
+          end
+        end
+      end
+    end
+
     describe "during bundle (install)" do
       describe "#update?" do
         it "returns false" do

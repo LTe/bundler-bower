@@ -13,4 +13,5 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 Bogus.configure do |c|
   c.search_modules << BowerRails
+  c.search_modules << Bundler::Bower
 end
