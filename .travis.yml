@@ -2,6 +2,8 @@ before_script:
   - npm install -g bower
 rvm:
   - 2.0.0
+  - 1.9
+  - 1.8
   - ruby-head
   - jruby-head
   - jruby-19mode
