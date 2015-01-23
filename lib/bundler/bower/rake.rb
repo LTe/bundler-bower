@@ -24,7 +24,7 @@ module Bundler
       end
 
       def perform_dsl(file)
-        dsl = BowerRails::Dsl.evalute(file)
+        dsl = BowerRails::Dsl.evalute(File.dirname(file), File.basename(file))
 
         dsl.write_bower_json
         dsl.write_dotbowerrc
